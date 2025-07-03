@@ -9,13 +9,23 @@ SigmaStox is a two-stage machine-learning pipeline that first forecasts individu
 - **Optimization & Regularization:** Gradient descent and variants (e.g., Adam), learning rate schedules, dropout, and strategies to mitigate overfitting.
 - **Financial Volatility Concepts:**  
   - **Realized Volatility (RV):**  
-    \[\sigma_{\mathrm{RV},t} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (r_{t-i} - \bar r)^2}\]  
+    $$
+    \sigma_{\mathrm{RV},t} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (r_{t-i} - \bar r)^2}
+    $$
   - **Implied Volatility (IV):** Market’s expectation embedded in option prices, derived via the Black–Scholes model.
 - **Portfolio Theory & Correlation:**  
-  - **Correlation Coefficient:** \(\rho_{ij} = \frac{\mathrm{Cov}(r_i, r_j)}{\sigma_i \sigma_j}\)  
+  - **Correlation Coefficient:**  
+    $$
+    \rho_{ij} = \frac{\mathrm{Cov}(r_i, r_j)}{\sigma_i \sigma_j}
+    $$
   - **Portfolio Variance:**  
-    \[\sigma_p^2 = \sum_i w_i^2 \sigma_i^2 + 2 \sum_{i<j} w_i w_j \sigma_i \sigma_j \rho_{ij}\]  
-  - **Portfolio IV:** \(\sigma_p = \sqrt{\sigma_p^2}\)
+    $$
+    \sigma_p^2 = \sum_i w_i^2 \sigma_i^2 + 2 \sum_{i<j} w_i w_j \sigma_i \sigma_j \rho_{ij}
+    $$
+  - **Portfolio IV:**  
+    $$
+    \sigma_p = \sqrt{\sigma_p^2}
+    $$
 - **Statistical Evaluation Metrics:** Definitions of MSE, MAE, RMSE, and Pearson correlation coefficient for model assessment.
 
 ---
@@ -67,8 +77,14 @@ Missing IVs (e.g., illiquid days) are dropped to ensure clean model inputs.
    - **Market Regime**: optional VIX or index vol as a regime indicator.
 
 2. **Target Computation**  
-   - **Portfolio variance**: \(\sigma_p^2 = \sum_i w_i^2 \sigma_i^2 + 2 \sum_{i<j} w_i w_j \sigma_i \sigma_j \rho_{ij}\)  
-   - **Portfolio IV**: \(\sigma_p = \sqrt{\sigma_p^2}\)
+   - **Portfolio variance:**  
+     $$
+     \sigma_p^2 = \sum_i w_i^2 \sigma_i^2 + 2 \sum_{i<j} w_i w_j \sigma_i \sigma_j \rho_{ij}
+     $$
+   - **Portfolio IV:**  
+     $$
+     \sigma_p = \sqrt{\sigma_p^2}
+     $$
 
 3. **Model Architecture**  
    - **MLP**: input dimension = (#assets + #correlations + optional regimes), two hidden layers with dropout.  
