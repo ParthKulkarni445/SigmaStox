@@ -11,15 +11,15 @@ SigmaStox is a two-stage machine-learning pipeline that first forecasts individu
 - **Optimization & Regularization:** Gradient descent and variants (e.g., Adam), learning rate schedules, dropout, and strategies to mitigate overfitting.
 - **Financial Volatility Concepts:**  
   - **Realized Volatility (RV):**  
-    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\sigma_{\mathrm{RV},t}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(r_{t-i}-\bar{r})^2}" alt="Realized Volatility Formula"/>
+    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\sigma_{\mathrm{RV},t}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(r_{t-i}-\bar{r})^2}" alt="Realized Volatility Formula"/>
   - **Implied Volatility (IV):** Market’s expectation embedded in option prices, derived via the Black–Scholes model.
 - **Portfolio Theory & Correlation:**  
   - **Correlation Coefficient:**  
-    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\rho_{ij}=\frac{\mathrm{Cov}(r_i,r_j)}{\sigma_i\sigma_j}" alt="Correlation Coefficient"/>
+    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\rho_{ij}=\frac{\mathrm{Cov}(r_i,r_j)}{\sigma_i\sigma_j}" alt="Correlation Coefficient"/>
   - **Portfolio Variance:**  
-    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\sigma_p^2=\sum_iw_i^2\sigma_i^2+2\sum_{i<j}w_iw_j\sigma_i\sigma_j\rho_{ij}" alt="Portfolio Variance"/>
+    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\sigma_p^2=\sum_iw_i^2\sigma_i^2+2\sum_{i<j}w_iw_j\sigma_i\sigma_j\rho_{ij}" alt="Portfolio Variance"/>
   - **Portfolio IV:**  
-    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\sigma_p=\sqrt{\sigma_p^2}" alt="Portfolio IV"/>
+    <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\sigma_p=\sqrt{\sigma_p^2}" alt="Portfolio IV"/>
 - **Statistical Evaluation Metrics:** Definitions of MSE, MAE, RMSE, and Pearson correlation coefficient for model assessment.
 
 ---
@@ -72,9 +72,9 @@ Missing IVs (e.g., illiquid days) are dropped to ensure clean model inputs.
 
 2. **Target Computation**  
    - **Portfolio variance:**  
-     <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\sigma_p^2=\sum_iw_i^2\sigma_i^2+2\sum_{i<j}w_iw_j\sigma_i\sigma_j\rho_{ij}" alt="Portfolio Variance"/>
+     <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\sigma_p^2=\sum_iw_i^2\sigma_i^2+2\sum_{i<j}w_iw_j\sigma_i\sigma_j\rho_{ij}" alt="Portfolio Variance"/>
    - **Portfolio IV:**  
-     <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\sigma_p=\sqrt{\sigma_p^2}" alt="Portfolio IV"/>
+     <img src="https://latex.codecogs.com/png.image?\dpi{120}&space;\bg_white\sigma_p=\sqrt{\sigma_p^2}" alt="Portfolio IV"/>
 
 3. **Model Architecture**  
    - **MLP**: input dimension = (#assets + #correlations + optional regimes), two hidden layers with dropout.  
